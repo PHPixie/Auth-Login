@@ -4,13 +4,17 @@ namespace PHPixie;
 
 class AuthLogin
 {
+    /** @var AuthLogin\Builder */
     protected $builder;
-    
+
+    /**
+     * @param \PHPixie\Security $security
+     */
     public function __construct($security)
     {
         $this->builder = $this->buildBuilder($security);
     }
-    
+
     public function providers()
     {
         return $this->builder->providers();

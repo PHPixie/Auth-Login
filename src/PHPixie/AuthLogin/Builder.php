@@ -4,15 +4,22 @@ namespace PHPixie\AuthLogin;
 
 class Builder
 {
+    /** @var \PHPixie\Security */
     protected $security;
-    
+    /** @var Providers */
     protected $providers;
-    
+
+    /**
+     * @param \PHPixie\Security $security
+     */
     public function __construct($security)
     {
         $this->security = $security;
     }
-    
+
+    /**
+     * @return Providers
+     */
     public function providers()
     {
         if($this->providers === null) {
