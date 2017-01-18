@@ -45,11 +45,18 @@ class Password extends \PHPixie\Auth\Providers\Provider\Implementation
         if(!$this->verify($password, $hash)) {
             return null;
         }
-        
+
+        $this->setUser($user);
+        return $user;
+    }
+
+    /**
+     * @param \PHPixie\AuthLogin\Repository\User $user
+     */
+    public function setUser($user)
+    {
         $this->domain->setUser($user, $this->name);
         $this->persist();
-        
-        return $user;
     }
 
     /**
